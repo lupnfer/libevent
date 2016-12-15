@@ -1908,6 +1908,7 @@ event_base_loop(struct event_base *base, int flags)
 
 	base->event_gotterm = base->event_break = 0;
 
+	/*主循环*/
 	while (!done) {
 		base->event_continue = 0;
 		base->n_deferreds_queued = 0;
@@ -1922,6 +1923,8 @@ event_base_loop(struct event_base *base, int flags)
 		}
 
 		tv_p = &tv;
+		// 看不懂==！ 
+		// 根据timer heap中事件的最小超时时间，计算系统I/O demultiplexer 的最大等待时间   
 		if (!N_ACTIVE_CALLBACKS(base) && !(flags & EVLOOP_NONBLOCK)) {
 			timeout_next(base, &tv_p);
 		} else {

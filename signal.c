@@ -116,6 +116,8 @@ static void __cdecl evsig_handler(int sig);
 #define EVSIGBASE_LOCK() EVLOCK_LOCK(evsig_base_lock, 0)
 #define EVSIGBASE_UNLOCK() EVLOCK_UNLOCK(evsig_base_lock, 0)
 
+/*设置一些全局变量
+用于指名signal所属的 event_base实例  */
 void
 evsig_set_base_(struct event_base *base)
 {

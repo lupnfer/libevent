@@ -132,3 +132,4 @@ tags
 *.vcxproj
 *.sln
 *.filters
+include/event2/event_struct.h

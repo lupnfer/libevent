@@ -205,10 +205,15 @@ struct event_once {
 	void *arg;
 };
 
+
 struct event_base {
+	/*evsel 和 evbase
+	看作是类和静态函数的关系，比如添加事件时的调用行为：evsel->add(evbase, ev)，实际执
+	行操作的是 evbase*/
+	
 	/** Function pointers and other data to describe this event_base's
 	 * backend. */
-	const struct eventop *evsel;
+	const struct eventop *evsel; /*Support add del dispatch*/
 	/** Pointer to backend-specific data. */
 	void *evbase;
 

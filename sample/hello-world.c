@@ -42,6 +42,9 @@ main(int argc, char **argv)
 	struct evconnlistener *listener;
 	struct event *signal_event;
 
+	/*
+	sockaddr_in（在netinet/in.h中定义）
+	*/
 	struct sockaddr_in sin;
 #ifdef _WIN32
 	WSADATA wsa_data;
@@ -76,7 +79,6 @@ main(int argc, char **argv)
 	}
 
 	event_base_dispatch(base);
-
 	evconnlistener_free(listener);
 	event_free(signal_event);
 	event_base_free(base);
@@ -111,7 +113,7 @@ conn_writecb(struct bufferevent *bev, void *user_data)
 	struct evbuffer *output = bufferevent_get_output(bev);
 	if (evbuffer_get_length(output) == 0) {
 		printf("flushed answer\n");
-		bufferevent_free(bev);
+		bufferevent_free(bev);*890-
 	}
 }
 

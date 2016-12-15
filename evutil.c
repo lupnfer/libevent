@@ -2519,6 +2519,7 @@ evutil_socket_(int domain, int type, int protocol)
 		return -1;
 #endif
 #define SOCKET_TYPE_MASK (~(EVUTIL_SOCK_NONBLOCK|EVUTIL_SOCK_CLOEXEC))
+	//type SOCKET Type : SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET etc
 	r = socket(domain, type & SOCKET_TYPE_MASK, protocol);
 	if (r < 0)
 		return -1;
