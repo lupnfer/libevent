@@ -77,8 +77,9 @@ main(int argc, char **argv)
 		fprintf(stderr, "Could not create/add a signal event!\n");
 		return 1;
 	}
-
+	/* 事件循环 event_base_dispatch event_base_loop*/
 	event_base_dispatch(base);
+	
 	evconnlistener_free(listener);
 	event_free(signal_event);
 	event_base_free(base);

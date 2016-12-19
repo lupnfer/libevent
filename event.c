@@ -1898,7 +1898,7 @@ event_base_loop(struct event_base *base, int flags)
 	clear_time_cache(base);
 
 	if (base->sig.ev_signal_added && base->sig.ev_n_signals_added)
-		evsig_set_base_(base);
+		evsig_set_base_(base);   //如果说当前ev_base已经加入了信号事件，那么就把ev_signal_base指向他
 
 	done = 0;
 

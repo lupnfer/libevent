@@ -538,7 +538,7 @@ const char *evutil_socket_error_to_string(int errcode);
 #ifdef EVENT__HAVE_TIMERISSET
 #define evutil_timerisset(tvp) timerisset(tvp)
 #else
-#define	evutil_timerisset(tvp)	((tvp)->tv_sec || (tvp)->tv_usec)
+#define	evutil_timerisset(tvp)	((tvp)->tv_sec || (tvp)->tv_usec)   //时间非空返回
 #endif
 
 /** Replacement for offsetof on platforms that don't define it. */
